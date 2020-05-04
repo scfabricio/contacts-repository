@@ -3,7 +3,7 @@ import React from 'react';
 class Contact extends React.Component {
   render() {
     return (
-      <article className="contact">
+      <article data-testid="contact" className="contact">
 				<span className="contact__avatar"><img src={this.props.avatar} alt="Avatar de usuário"/></span>
 				<span className="contact__data">{this.props.name}</span>
 				<span className="contact__data">{this.props.phone}</span>

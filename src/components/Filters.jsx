@@ -1,55 +1,47 @@
 import React from 'react';
 
-class Filters extends React.Component {
-	render() {
-		return (
-			<div className="container">
-        <section className="filters">
-          <div className="filters__search">
-            <input type="text" className="filters__search__input" placeholder="Pesquisar" 
-              onChange={e => this.setSearch(e.target.value)}
-            />
 
-            <button className="filters__search__icon"
-              onClick={() => this.handleSearch(this.search, this.filter, this.contacts)}
-            >
-              <i className="fa fa-search"/>
-            </button>
-          </div>
+export default ({ search, sort, setSort}) => 
+  <div data-testid="filters" className="container">
+    <section className="filters">
+      <div className="filters__search">
+        <input type="text" className="filters__search__input" placeholder="Pesquisar" 
+          onChange={e => search(e.target.value)}
+        />
 
-          <button className={`filters__item ${this.filter === 'name' && 'is-selected'}`}
-            onClick={() => this.setFilter('name')}
-          >
-            Nome <i className="fas fa-sort-down" />
-          </button>
-
-          <button className={`filters__item ${this.filter === 'country' && 'is-selected'}`}
-            onClick={() => this.setFilter('country')}
-          >
-            País <i className="fas fa-sort-down" />
-          </button>
-
-          <button className={`filters__item ${this.filter === 'company' && 'is-selected'}`}
-            onClick={() => this.setFilter('company')}
-          >
-            Empresa <i className="fas fa-sort-down" />
-          </button>
-
-          <button className={`filters__item ${this.filter === 'department' && 'is-selected'}`}
-            onClick={() => this.setFilter('department')}
-          >
-            Departamento <i className="fas fa-sort-down" />
-          </button>
-
-          <button className={`filters__item ${this.filter === 'admissionDate' && 'is-selected'}`}
-            onClick={() => this.setFilter('admissionDate')}
-          >
-            Data de admissão <i className="fas fa-sort-down" />
-          </button>
-        </section>
+        <button className="filters__search__icon">
+          <i className="fa fa-search"/>
+        </button>
       </div>
-		);
-	}
-}
 
-export default Filters;
+      <button className={`filters__item ${sort === 'name' && 'is-selected'}`}
+        onClick={() => setSort('name')}
+      >
+        Nome <i className="fas fa-sort-down" />
+      </button>
+
+      <button className={`filters__item ${sort === 'country' && 'is-selected'}`}
+        onClick={() => setSort('country')}
+      >
+        País <i className="fas fa-sort-down" />
+      </button>
+
+      <button className={`filters__item ${sort === 'company' && 'is-selected'}`}
+        onClick={() => setSort('company')}
+      >
+        Empresa <i className="fas fa-sort-down" />
+      </button>
+
+      <button className={`filters__item ${sort === 'department' && 'is-selected'}`}
+        onClick={() => setSort('department')}
+      >
+        Departamento <i className="fas fa-sort-down" />
+      </button>
+
+      <button className={`filters__item ${sort === 'admissionDate' && 'is-selected'}`}
+        onClick={() => setSort('admissionDate')}
+      >
+        Data de admissão <i className="fas fa-sort-down" />
+      </button>
+    </section>
+  </div>
